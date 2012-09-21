@@ -3,6 +3,11 @@ Doople
 
 Framework for rapid development of bi-directional json-rpc over websockets.
 
+Requires: Tornado Web Server
+
+Compatible with Python 2.7 and 3
+
+
 Usage:
 
 Three files are needed:
