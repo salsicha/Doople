@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+
+    {% block styles %}{% end %}
+    <script src="../import_js/jquery.min.js"></script>
+    {% block scripts %}{% end %}      
+
+    <script>
+      var SendRPC;
+
+      $(document).ready(function () {
+        var ws;
+        var host = 'localhost'
+        var port = '8899'
+        var uri = '/ws'
+        var myID = 0
+
+        // Dynamically importing script by project name
+        $.getScript('../import_js/{{ title }}.js',function(){});
+
+        ws = new WebSocket("ws://" + host + ":" + port + uri);
+
+        ws.onopen = function(evt) {
+          console.log('connection opened');
+        };
+
+        ws.onmessage = function(evt) {
+          console.log('message received: ' + evt.data);
+          var res = JSON.parse(evt.data);
+          var myFunc = window[res.method](res.params);
+        };
+
+        ws.onclose = function(evt) {
+          console.log('connection closed');
+        };
+
+        // Send JSON over web socket
+        SendRPC = function(_method, _params) {
+          var message = {method:_method, params:_params};
+          var json = JSON.stringify(message);
+          ws.send(json);
+        };
+
+      });
+    </script>
+  </head>
+  <body>
+    {% block body %}{% end %}
+  </body>
+</html>
+
