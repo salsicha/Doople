@@ -1,7 +1,7 @@
 Doople
 =============
 
-Framework for rapid development of bi-directional json-rpc over websockets.
+Framework for rapid development of applications with bi-directional json-rpc over websockets.
 
 Requires: Tornado Web Server
 
