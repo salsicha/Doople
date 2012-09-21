@@ -1,4 +1,6 @@
 
+// DEMO APP: chat
+
 // USAGE
 // To send a message to the server:
 // SendRPC("methodname", ["param", "array"])

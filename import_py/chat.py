@@ -1,4 +1,6 @@
 
+# DEMO APP: chat
+
 # USAGE
 # Functions declared here are called with getattr() on the Doople class namespace:
 # getattr(Doople.doople, json["method"])(json["params"], SendRPC)
