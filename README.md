@@ -23,3 +23,8 @@ Run:
 >sudo python doople.py
 
 Then open a web browser to 'localhost/chat' or 'localhost/(app_name)'
+
+
+Planned:
+- Database access
+- NowJS compatibility
