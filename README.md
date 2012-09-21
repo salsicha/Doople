@@ -1,7 +1,7 @@
 Doople
 =============
 
-Framework for rapid development of bi-directional json-rpm over websockets.
+Framework for rapid development of bi-directional json-rpc over websockets.
 
 Usage:
 
