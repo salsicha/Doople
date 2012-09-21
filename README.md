@@ -16,7 +16,7 @@ Three files are needed:
 2. Javascript file, put in the import_js folder
 3. Python file, put in the import_py folder
 
-If you look at the demo 'chat' app you will see that all three files need to the the same name (chat.html, chat.js, chat.py). You will also see how the files need to be formatted. Any number of apps can be added, but all apps running in the same instance will receive each other's messages.
+If you look at the demo 'chat' app you will see that all three files need to have the same name (chat.html, chat.js, chat.py), this is the app name. You will also see how the files need to be formatted. Any number of apps can be added, but all apps running in the same instance will receive each other's messages.
 
 
 Run:
