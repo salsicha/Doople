@@ -85,17 +85,33 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 # Web socket application
 WSApplication = tornado.web.Application([
     (r'/ws', WSHandler),
+# ])
 ], debug=True)
 
 # File server application
 FileApplication = tornado.web.Application([
     (r'/([A-Za-z0-9]+)', SitesHandler),
     (r'/import_js/(.*)', JSImportHandler),
+# ])
 ], debug=True)
 
 if __name__ == "__main__":
     http_server_index = tornado.httpserver.HTTPServer(FileApplication)
-    http_server_index.listen(80)
+
+    # Single thread
+    # http_server_index.listen(80)
+
+    # Forks multiple sub-processes
+    http_server_index.bind(80)
+    http_server_index.start()
+
     http_server = tornado.httpserver.HTTPServer(WSApplication)
-    http_server.listen(8899)
+
+    # Single thread
+    # http_server.listen(8899)
+
+    # Forks multiple sub-processes
+    http_server.bind(8899)
+    http_server.start()
+
     tornado.ioloop.IOLoop.instance().start()
