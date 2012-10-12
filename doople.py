@@ -103,7 +103,9 @@ if __name__ == "__main__":
 
     # Forks multiple sub-processes
     http_server_index.bind(80)
-    http_server_index.start()
+
+    # http_server_index.start()
+    http_server_index.start(0)
 
     http_server = tornado.httpserver.HTTPServer(WSApplication)
 
